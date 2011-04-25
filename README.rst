@@ -28,19 +28,19 @@ Download the source and run:
     
 
 
-..  You can also obtain ``django-urli18n`` via PyPi:
+You can also obtain ``django-urli18n`` via PyPi:
     
-    ::
-        
-        pip install django-urli18n
-        
-    or
+::
     
-    ::
-        
-        easy_install django-urli18n
-        
+    pip install django-urli18n
     
+or
+
+::
+    
+    easy_install django-urli18n
+    
+
 3. Setup
 :::::::::::::::::::::::::::::::::::::
 
