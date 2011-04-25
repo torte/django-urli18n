@@ -1,0 +1,16 @@
+Name: django-urli18n
+Version: 0.1
+Summary: A reusable Django app to display the current activated language in the URL
+Home-page: https://github.com/Torte/django-urli18n
+Author: Torsten Engelbrecht
+Author-email: torsten.engelbrecht@gmail.com
+License: UNKNOWN
+Download-URL: https://github.com/Torte/django-urli18n/tarball/master
+Description: UNKNOWN
+Platform: UNKNOWN
+Classifier: Environment :: Web Environment
+Classifier: Programming Language :: Python
+Classifier: Framework :: Django
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
