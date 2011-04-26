@@ -19,6 +19,8 @@ Check it out. It's easy to install and plugs perfectly with Django.
 - `5. Additional settings`_
 
 
+.. _introduction: 
+
 0. Introduction
 :::::::::::::::::::::::::::::::::::::
 
@@ -76,12 +78,16 @@ string instead:
   redirect. 
 
 
+.. _requirements
+
 1. Requirements
 :::::::::::::::::::::::::::::::::::::
 
 At the moment ``django-urli18n`` requires Python_ >2.5 and
 Django_ >1.0 to run.
 
+
+.. _installation
 
 2. Installation
 :::::::::::::::::::::::::::::::::::::
@@ -105,6 +111,8 @@ or
     
     easy_install django-urli18n
     
+ 
+.. _setup
 
 3. Setup
 :::::::::::::::::::::::::::::::::::::
@@ -203,6 +211,8 @@ your ``INSTALLED_APPS``:
 ``python manage.py test urli18n``
 
 
+.. _usage-of-the-tag-or-filter
+
 4. Usage of the tag or filter
 :::::::::::::::::::::::::::::::::::::
 
@@ -228,6 +238,8 @@ middleware. Some examples:
 The ``transform_url`` template tag and filter are doing
 exactly the same, except for their syntax in the template.
 
+
+.. _additional-settings
 
 5. Additional settings
 :::::::::::::::::::::::::::::::::::::
