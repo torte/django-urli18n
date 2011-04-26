@@ -11,6 +11,71 @@ languages, ...)
 
 Check it out. It's easy to install and plugs perfectly with Django.
 
+- `0. Introduction`_
+- `1. Requirements`_
+- `2. Installation`_
+- `3. Setup`_
+- `4. Usage of the tag or filter`_
+- `5. Additional settings`_
+
+
+0. Introduction
+:::::::::::::::::::::::::::::::::::::
+
+Your web-project is multilingual and you want to show different
+parts of your site according to which language is chosen? Then 
+``django-urli18n`` is the right app for your project. Lets say
+you are the owner of example.com and want to to direct users of
+different languages to the appropriate pages.
+
+::
+    
+    http://example.com/de/ -> watch the site in German
+    http://example.com/en/ -> watch the site in English
+    http://example.com/zh-cn/ -> watch the site in Mandarin Chinese
+    
+
+This include all sub pages you include in the configuration for this
+app as well. For example if you got a page listing all your articles
+of your site:
+
+::
+    
+    http://example.com/de/articles/ -> watch the article directory in German
+    http://example.com/en/articles/ -> watch the article directory in English
+    http://example.com/zh-cn/articles/ -> watch the article directory in Mandarin Chinese
+    
+
+You don't want to show the language in the URL's path? You can
+use a different middleware to show the language in the URL's query
+string instead:
+
+::
+    
+    http://example.com/articles/?lang=de -> watch the article directory in German
+    http://example.com/articles/?lang=en -> watch the article directory in English
+    http://example.com/articles/?lang=zh-cn -> watch the article directory in Mandarin Chinese
+    
+
+**Notes**: 
+
+- ``django-urli18n`` is not used to handle changing the
+  language of your site. You need to use other tools which are
+  doing this (for example Django's built-in ``set_language`` view
+  in ``django.views.i18n`` and Django's built-in middleware class
+  ``django.middleware.locale.LocaleMiddleware``).
+- in the case you go directly to a page specifing the language in
+  the URL (for example to ``http://example.com/de/``)
+  ``django-urli18n`` will attempt to change the language, even
+  another language was activated before. If you don't specify the
+  language in the URL it will attempt to get the language according
+  to which way you prefer and then redirect accordingly to the right
+  URL. For example if you prefer to use ``django.middleware.locale.LocaleMiddleware``
+  it will try to resolve the language from the request and activate it.
+  Afterwards ``django-urli18n`` middleware will handle this and
+  redirect. 
+
+
 1. Requirements
 :::::::::::::::::::::::::::::::::::::
 
