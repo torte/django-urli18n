@@ -46,7 +46,7 @@ def is_included_path(path, strict_mode=True):
     if not (media_url and path.startswith(media_url))\
     and not (static_url and path.startswith(static_url)):
         for p in app_settings.URLI18N_INCLUDE_PATHS:
-            p = _edit_path_exp(p, mode)
+            p = _edit_path_exp(p, strict_mode)
             regex_path = re.compile(p, re.UNICODE)
             if regex_path.match(path):
                 return True
