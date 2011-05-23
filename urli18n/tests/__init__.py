@@ -12,6 +12,11 @@ class UrlPathTransformMiddlewareTestCase(TestCase):
     urls = 'urli18n.tests.urls'
     
     def setUp(self):
+        self.curr_MIDDLEWARE_CLASSES = settings.MIDDLEWARE_CLASSES
+        self.curr_LANGUAGE_CODE = settings.LANGUAGE_CODE
+        self.curr_LANGUAGES = settings.LANGUAGES
+        self.curr_app_URLI18N_INCLUDE_PATHS = app_settings.URLI18N_INCLUDE_PATHS
+        self.curr_app_URLI18N_ALWAYS_SHOW_LANGUAGE = app_settings.URLI18N_ALWAYS_SHOW_LANGUAGE
         settings.MIDDLEWARE_CLASSES = (
             'urli18n.middleware.UrlPathTransformMiddleware',
         )
@@ -25,6 +30,13 @@ class UrlPathTransformMiddlewareTestCase(TestCase):
                                '^/articles/(?P<year>\d{4})/(?P<month>\d{2})/(?P<day>\d+)/$']
         app_settings.URLI18N_INCLUDE_PATHS = self.included_paths
         app_settings.URLI18N_ALWAYS_SHOW_LANGUAGE = True
+    
+    def tearDown(self):
+        settings.MIDDLEWARE_CLASSES = self.curr_MIDDLEWARE_CLASSES
+        settings.LANGUAGE_CODE = self.curr_LANGUAGE_CODE
+        settings.LANGUAGES = self.curr_LANGUAGES
+        app_settings.URLI18N_INCLUDE_PATHS = self.curr_app_URLI18N_INCLUDE_PATHS
+        app_settings.URLI18N_ALWAYS_SHOW_LANGUAGE = self.curr_app_URLI18N_ALWAYS_SHOW_LANGUAGE
 
     def test_view1_en(self):
         #first with standard settings
@@ -352,6 +364,11 @@ class UrlQuerystringTransformMiddlewareTestCase(TestCase):
     urls = 'urli18n.tests.urls'
     
     def setUp(self):
+        self.curr_MIDDLEWARE_CLASSES = settings.MIDDLEWARE_CLASSES
+        self.curr_LANGUAGE_CODE = settings.LANGUAGE_CODE
+        self.curr_LANGUAGES = settings.LANGUAGES
+        self.curr_app_URLI18N_INCLUDE_PATHS = app_settings.URLI18N_INCLUDE_PATHS
+        self.curr_app_URLI18N_ALWAYS_SHOW_LANGUAGE = app_settings.URLI18N_ALWAYS_SHOW_LANGUAGE
         settings.MIDDLEWARE_CLASSES = (
             'urli18n.middleware.UrlQuerystringTransformMiddleware',
         )
@@ -366,6 +383,13 @@ class UrlQuerystringTransformMiddlewareTestCase(TestCase):
         app_settings.URLI18N_INCLUDE_PATHS = self.included_paths
         app_settings.URLI18N_ALWAYS_SHOW_LANGUAGE = True
         app_settings.URLI18N_QUERYSTRING_NAME = 'lang'
+    
+    def tearDown(self):
+        settings.MIDDLEWARE_CLASSES = self.curr_MIDDLEWARE_CLASSES
+        settings.LANGUAGE_CODE = self.curr_LANGUAGE_CODE
+        settings.LANGUAGES = self.curr_LANGUAGES
+        app_settings.URLI18N_INCLUDE_PATHS = self.curr_app_URLI18N_INCLUDE_PATHS
+        app_settings.URLI18N_ALWAYS_SHOW_LANGUAGE = self.curr_app_URLI18N_ALWAYS_SHOW_LANGUAGE
     
     def test_view1_en(self):
         #first with standard settings
